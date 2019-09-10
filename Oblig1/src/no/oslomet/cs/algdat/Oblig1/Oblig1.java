@@ -37,6 +37,8 @@ public class Oblig1 {
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
 
+        //MARIA WAS HERE
+
         //throw new NotImplementedException(); // TODO: se på denne (original)
 
         if(a.length < 1){
