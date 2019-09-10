@@ -6,6 +6,7 @@ package no.oslomet.cs.algdat.Oblig1;
  * Maria Teresita Halvorsen - s326325
  * Signe Aanderaa Eide - s333781
  * Ana-Maria Poljac - s333745
+ * Christian Dyrli - s333738
  */
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
