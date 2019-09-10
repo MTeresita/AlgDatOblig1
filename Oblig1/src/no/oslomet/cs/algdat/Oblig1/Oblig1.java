@@ -133,9 +133,26 @@ public class Oblig1 {
     }
 
 
+    /**
+     * @author Ana-Maria og Maria
+     */
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        int teller = 0;
+        for(int i = 0; i < a.length; i++){
+            boolean duplikat = false;
+            for(int j = 0; j < i; j++){
+                if(a[i] == a[j]){
+                    duplikat = true;
+                    break;
+                }
+            }
+            if(!duplikat){
+                teller++;
+            }
+        }
+        return teller;
     }
 
     ///// Oppgave 4 //////////////////////////////////////
@@ -189,6 +206,7 @@ public class Oblig1 {
         int[] a = {1,2,11,4,2,6,7,13,9,10};
         int[] b = randPerm(20); // TODO: Bør defineres som egen metode alt. i test klassen
         int[] sortert = {3,3,4,5,5,6,6,7,7,7,8};
+        int[] usortert = {5,3,7,4,3,5,7,8,6,7};
 
         System.out.println("Maks verdi er: "+ maks(a));
         System.out.println("Array det jobbes på: "+Arrays.toString(a));
@@ -199,6 +217,9 @@ public class Oblig1 {
         System.out.println("-------------------------------------------------");
         System.out.println("Antall ulike sortert er: "+antallUlikeSortert(sortert));
         System.out.println(Arrays.toString(sortert));
+        System.out.println("-------------------------------------------------");
+
+        System.out.println("Antall ulike verdier : "+ antallUlikeUsortert(usortert));
     }
 
 }  // Oblig1
