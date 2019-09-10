@@ -22,7 +22,7 @@ public class Oblig1 {
     private Oblig1() {
     }
 
-    // metode som bytter plass på verdiene når den kalles
+    // hjelpe metode som bytter plass på verdiene når den kalles
     public static void bytt(int[] a, int i, int j){
         int temp = a[i]; a[i] = a[j]; a[j] = temp;
     }
@@ -36,11 +36,6 @@ public class Oblig1 {
 
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
-
-        //MARIA WAS HERE
-        //AMPELINII was here
-
-        //throw new NotImplementedException(); // TODO: se på denne (original)
 
         if(a.length < 1){
             throw new NoSuchElementException("Tabellen er tom");
@@ -106,22 +101,35 @@ public class Oblig1 {
         return snitt;
     }
 
-    // For testing per nå - endres / fjernes
-    public static void main(String[] args) {
-        int[] a = {1,2,11,4,2,6,7,13,9,10};
-        int[] b = randPerm(20); // TODO: Bør defineres som egen metode alt. i test klassen
-
-        System.out.println("Maks verdi er: "+ maks(a));
-        System.out.println("Array det jobbes på: "+Arrays.toString(a));
-        System.out.println("-------------------------------------------------");
-        System.out.println("Antall ombyttinger :"+ombyttinger(b));
-        System.out.println("Arrayet det jobbes på:"+Arrays.toString(b));
-        System.out.println("Gjennomsnittlig ombyttinger er "+gjennomsnitt(b));
-    }
 
     ///// Oppgave 2 //////////////////////////////////////
+
+    // hjelpemetode for å sjekke sortert rekkefølge (stigende)
+    public static boolean sortertArray(int[] a){
+        for(int i=0; i < a.length -1; i++){
+            if(a[i] > a[i+1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static int antallUlikeSortert(int[] a) {
-        throw new NotImplementedException();
+
+        if (!sortertArray(a)) {
+            throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge!");
+        }
+
+        int teller = 1;
+        for (int i = 0; i < a.length -1; i++) {
+            if (a[i] != a[i + 1]) {
+                teller++;
+            }
+            if(a.length == 0){
+                teller = 0; // returnerer 0 hvis det er 0 forskjellige verdier i en tom tabell
+            }
+        }
+        return teller;
     }
 
 
@@ -174,6 +182,23 @@ public class Oblig1 {
 
     public static boolean inneholdt(String a, String b) {
         throw new NotImplementedException();
+    }
+
+    // For testing per nå - endres / fjernes
+    public static void main(String[] args) {
+        int[] a = {1,2,11,4,2,6,7,13,9,10};
+        int[] b = randPerm(20); // TODO: Bør defineres som egen metode alt. i test klassen
+        int[] sortert = {3,3,4,5,5,6,6,7,7,7,8};
+
+        System.out.println("Maks verdi er: "+ maks(a));
+        System.out.println("Array det jobbes på: "+Arrays.toString(a));
+        System.out.println("-------------------------------------------------");
+        System.out.println("Antall ombyttinger :"+ombyttinger(b));
+        System.out.println("Arrayet det jobbes på:"+Arrays.toString(b));
+        System.out.println("Gjennomsnittlig ombyttinger er "+gjennomsnitt(b)); // TODO: kommentere i javadoc utfallet vi får med de forkjsellige str
+        System.out.println("-------------------------------------------------");
+        System.out.println("Antall ulike sortert er: "+antallUlikeSortert(sortert));
+        System.out.println(Arrays.toString(sortert));
     }
 
 }  // Oblig1
