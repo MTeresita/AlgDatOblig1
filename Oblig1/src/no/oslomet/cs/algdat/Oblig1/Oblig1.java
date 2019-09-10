@@ -38,6 +38,7 @@ public class Oblig1 {
     public static int maks(int[] a) {
 
         //MARIA WAS HERE
+        //AMPELINII was here
 
         //throw new NotImplementedException(); // TODO: se på denne (original)
 
