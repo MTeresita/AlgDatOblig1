@@ -2,8 +2,11 @@
 
 Denne oppgaven er en innlevering i Algoritmer og Datastrukturer. 
 Oppgaven er levert av følgende studenter:
-* Navn Navnesen, S981737, s981737@oslomet.no
-* ...
+* Maria Teresita Halvorsen : s326325
+* Signe Aanderaa Eide : s333781
+* Christian Dyrli : s333738
+* Camilla Hoelgaard : s333783
+* Ana-Maria Poljac : s333745
 
 # Arbeidsfordeling
 
