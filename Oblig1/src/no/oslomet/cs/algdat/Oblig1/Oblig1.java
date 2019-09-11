@@ -79,7 +79,6 @@ public class Oblig1 {
         //throw new NotImplementedException(); // TODO: se på denne (original)
 
         int teller = 0;
-        randPerm(a);
 
         for(int i=0; i < a.length -1; i++){
             if(a[i] > a[i+1]){
@@ -132,7 +131,6 @@ public class Oblig1 {
         return teller;
     }
 
-
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
         throw new NotImplementedException();
@@ -140,7 +138,17 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        int oddetall = 0;
+
+        for(int i=0;i<a.length;i++){
+            if(a[i] % 2 == 1 || a[i] % 2 == -1){
+                bytt(a, i, oddetall);
+                oddetall++;
+            }
+        }
+        Arrays.sort(a, 0, oddetall);
+        Arrays.sort(a, oddetall, a.length);
     }
 
     ///// Oppgave 5 //////////////////////////////////////
@@ -189,6 +197,7 @@ public class Oblig1 {
         int[] a = {1,2,11,4,2,6,7,13,9,10};
         int[] b = randPerm(20); // TODO: Bør defineres som egen metode alt. i test klassen
         int[] sortert = {3,3,4,5,5,6,6,7,7,7,8};
+        int[] c ={1,5,-2,7,3,4,-5,10,8,4};
 
         System.out.println("Maks verdi er: "+ maks(a));
         System.out.println("Array det jobbes på: "+Arrays.toString(a));
@@ -199,6 +208,10 @@ public class Oblig1 {
         System.out.println("-------------------------------------------------");
         System.out.println("Antall ulike sortert er: "+antallUlikeSortert(sortert));
         System.out.println(Arrays.toString(sortert));
+        System.out.println("-------------------------------------------------");
+        delsortering(c);
+        System.out.println("Delsortet" + Arrays.toString(c));
+
     }
 
 }  // Oblig1
