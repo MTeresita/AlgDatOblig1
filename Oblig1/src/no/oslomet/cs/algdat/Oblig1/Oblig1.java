@@ -85,7 +85,6 @@ public class Oblig1 {
         //throw new NotImplementedException(); // TODO: se på denne (original)
 
         int teller = 0;
-        randPerm(a);
 
         for(int i=0; i < a.length -1; i++){
             if(a[i] > a[i+1]){
@@ -163,9 +162,18 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-
         //Gjøres av Signe, Camilla og Christian
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        int oddetall = 0;
+
+        for(int i=0;i<a.length;i++){
+            if(a[i] % 2 == 1 || a[i] % 2 == -1){
+                bytt(a, i, oddetall);
+                oddetall++;
+            }
+        }
+        Arrays.sort(a, 0, oddetall);
+        Arrays.sort(a, oddetall, a.length);
     }
 
     /**
