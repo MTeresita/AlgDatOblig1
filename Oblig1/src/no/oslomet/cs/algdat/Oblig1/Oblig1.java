@@ -27,6 +27,12 @@ public class Oblig1 {
         int temp = a[i]; a[i] = a[j]; a[j] = temp;
     }
 
+    public static void byttChar(char []a, int b, int c){
+        char temp = a[b];
+        a[b] = a[c];
+        a[c] = temp;
+    }
+
     /** Oppg.1 :
      * Gitt en tabell med tallene fra 1 til n vil det være :
      * Flest ombyttinger: når største verdi er på indeks 0
@@ -157,17 +163,37 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
+
+        //Gjøres av Signe, Camilla og Christian
         throw new NotImplementedException();
     }
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
-        throw new NotImplementedException();
-    }
+        //TODO må legge til en feilmelding
+        //TODO må testes i testklassen
 
+        for (int i = a.length -1; i > 0; i--){
+            byttChar(a,i-1,i);
+        }
+
+    }
     ///// Oppgave 6 //////////////////////////////////////
     public static void rotasjon(char[] a, int k) {
-        throw new NotImplementedException();
+        //TODO må testes i testklassen
+        int n = a.length;
+        if (n < 2){
+            return;
+        }
+        if((k %= n) < 0){
+            k += n;
+        }
+
+        char [] b = Arrays.copyOfRange(a,n-k,n);
+        for(int i = n-1; i >= k; i--){
+            a[i] = a[i-k];
+        }
+        System.arraycopy(b,0,a,0,k); // DAFUQ IS DIS
     }
 
     ///// Oppgave 7 //////////////////////////////////////
@@ -203,23 +229,47 @@ public class Oblig1 {
 
     // For testing per nå - endres / fjernes
     public static void main(String[] args) {
-        int[] a = {1,2,11,4,2,6,7,13,9,10};
+        int[] a = {1, 2, 11, 4, 2, 6, 7, 13, 9, 10};
         int[] b = randPerm(20); // TODO: Bør defineres som egen metode alt. i test klassen
-        int[] sortert = {3,3,4,5,5,6,6,7,7,7,8};
-        int[] usortert = {5,3,7,4,3,5,7,8,6,7};
+        int[] sortert = {3, 3, 4, 5, 5, 6, 6, 7, 7, 7, 8};
+        int[] usortert = {5, 3, 7, 4, 3, 5, 7, 8, 6, 7};
+        char[] testListe = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
 
-        System.out.println("Maks verdi er: "+ maks(a));
-        System.out.println("Array det jobbes på: "+Arrays.toString(a));
+
+
+        System.out.println("OPPGAVE 1:");
+        System.out.println("Maks verdi er: " + maks(a));
+        System.out.println("Array det jobbes på: " + Arrays.toString(a));
         System.out.println("-------------------------------------------------");
-        System.out.println("Antall ombyttinger :"+ombyttinger(b));
-        System.out.println("Arrayet det jobbes på:"+Arrays.toString(b));
-        System.out.println("Gjennomsnittlig ombyttinger er "+gjennomsnitt(b)); // TODO: kommentere i javadoc utfallet vi får med de forkjsellige str
+
+        System.out.println("OPPGAVE 2:");
+        System.out.println("Antall ombyttinger :" + ombyttinger(b));
+        System.out.println("Arrayet det jobbes på:" + Arrays.toString(b));
+        System.out.println("Gjennomsnittlig ombyttinger er " + gjennomsnitt(b)); // TODO: kommentere i javadoc utfallet vi får med de forkjsellige str
         System.out.println("-------------------------------------------------");
-        System.out.println("Antall ulike sortert er: "+antallUlikeSortert(sortert));
+
+        System.out.println("OPPGAVE 3:");
+        System.out.println("Antall ulike sortert er: " + antallUlikeSortert(sortert));
         System.out.println(Arrays.toString(sortert));
         System.out.println("-------------------------------------------------");
+        System.out.println("Antall ulike verdier : " + antallUlikeUsortert(usortert));
+        System.out.println("-------------------------------------------------");
 
-        System.out.println("Antall ulike verdier : "+ antallUlikeUsortert(usortert));
+        System.out.println("OPPGAVE 5:");
+        //rotasjon(testListe); //TODO tilhører oppgave 5 - kræsjer litt med hensikten til oppgave 6
+        System.out.println(testListe);
+        System.out.println("-------------------------------------------------");
+
+        System.out.println("OPPGAVE 6:");
+        System.out.println(Arrays.toString(testListe));
+        rotasjon(testListe,3);
+        System.out.println(testListe);
+        rotasjon(testListe,-2);
+        System.out.println(testListe);
+        System.out.println("-------------------------------------------------");
+
+
     }
+
 
 }  // Oblig1
