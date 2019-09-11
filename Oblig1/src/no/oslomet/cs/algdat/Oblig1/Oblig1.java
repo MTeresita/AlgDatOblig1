@@ -298,8 +298,9 @@ public class Oblig1 {
         System.out.println("-------------------------------------------------");
 
         System.out.println("OPPGAVE 5:");
-        //rotasjon(testListe); //TODO tilhører oppgave 5 - kræsjer litt med hensikten til oppgave 6
-        System.out.println(testListe);
+        System.out.println("Original: "+ Arrays.toString(testListe));
+        rotasjon(testListe);
+        System.out.println("Med forskyvning mot høyre: " + Arrays.toString(testListe));
         System.out.println("-------------------------------------------------");
 
         System.out.println("OPPGAVE 6:");
