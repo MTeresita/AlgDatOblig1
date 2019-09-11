@@ -168,6 +168,9 @@ public class Oblig1 {
         throw new NotImplementedException();
     }
 
+    /**
+     * @author Signe og Maria
+     */
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
         //TODO må legge til en feilmelding
@@ -178,6 +181,9 @@ public class Oblig1 {
         }
 
     }
+    /**
+     * @author Signe og Maria
+     */
     ///// Oppgave 6 //////////////////////////////////////
     public static void rotasjon(char[] a, int k) {
         //TODO må testes i testklassen
@@ -223,8 +229,39 @@ public class Oblig1 {
         throw new NotImplementedException();
     }
 
+    /**
+     * @author Signe og Maria
+     */
     public static boolean inneholdt(String a, String b) {
-        throw new NotImplementedException();
+
+        //TODO: Vi har funnet en løsning uten å bruke hjelpemetode, funker det mon tro?? :/
+
+        // Metoden skal ta inn to ord, begge inneholder kun store bokstaver. Ord A og B
+        // Det skal sjekkes om alle bokstavene i A inngår i B.
+
+        // 1. Splitte opp ordene i to lister
+        // 2. Sjekke liste B opp imot liste A, fjerner elementet om det finne det
+        // 3. Teller hvor mange elementer som blir fjernet fra liste B
+        // 4. Om A.length er like lang som elementer slettet
+
+        String[] A = a.split("");
+        String[] B = b.split("");
+
+        int teller = 0;
+
+        for(int i = 0; i < B.length; i++){
+            for(int j = 0; j < A.length; j++){
+                if(A[j].equals(B[i])){
+                    B[i] = "0";
+                    teller++;
+                }
+            }
+        }
+
+        if(teller == A.length){
+            return true;
+        }
+        return false;
     }
 
     // For testing per nå - endres / fjernes
@@ -268,6 +305,10 @@ public class Oblig1 {
         System.out.println(testListe);
         System.out.println("-------------------------------------------------");
 
+        System.out.println("OPPGAVE 10:");
+        String tekst = "ABBA";
+        String tekst2 = "ABOPBE";
+        System.out.println(inneholdt(tekst, tekst2));
 
     }
 
