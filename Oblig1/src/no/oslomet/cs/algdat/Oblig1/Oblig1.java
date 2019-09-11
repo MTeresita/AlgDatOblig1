@@ -107,17 +107,7 @@ public class Oblig1 {
     }
 
     // For testing per nå - endres / fjernes
-    public static void main(String[] args) {
-        int[] a = {1,2,11,4,2,6,7,13,9,10};
-        int[] b = randPerm(20); // TODO: Bør defineres som egen metode alt. i test klassen
 
-        System.out.println("Maks verdi er: "+ maks(a));
-        System.out.println("Array det jobbes på: "+Arrays.toString(a));
-        System.out.println("-------------------------------------------------");
-        System.out.println("Antall ombyttinger :"+ombyttinger(b));
-        System.out.println("Arrayet det jobbes på:"+Arrays.toString(b));
-        System.out.println("Gjennomsnittlig ombyttinger er "+gjennomsnitt(b));
-    }
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
@@ -132,7 +122,45 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        throw new NotImplementedException();
+        int venstre = a[0];
+        int hoyre = a[a.length-1];
+
+
+        while(venstre <= hoyre) {
+            while(a[venstre] == 0 && venstre < hoyre){
+                venstre++;
+            }
+            while(a[hoyre] == 1 && venstre < hoyre){
+                hoyre--;
+            }
+
+            if(venstre < hoyre){
+                bytt(a,a[venstre],a[hoyre]);
+            }
+//            for (int i = 0; i < hoyre; i++) {
+//                int tall = a[i];
+//
+//                if(tall % 2 == 0){//det er partall
+//
+//                }
+//                int tall1 = left % 2;  //1 - returnerer 1
+//                int tall2 = a[i] % 2;  //2 - returnerer 0
+//
+//
+//                //if(tall % 2 == 1){det er oddetall}
+//
+//                if (tall1 < tall2) {
+//                    bytt(a,);
+//                }
+//                left++;
+//            }
+            System.out.println("\n");
+
+        }
+        System.out.print(Arrays.toString(a));
+
+
+        //throw new NotImplementedException();
     }
 
     ///// Oppgave 5 //////////////////////////////////////
@@ -161,7 +189,6 @@ public class Oblig1 {
         throw new NotImplementedException();
     }
 
-
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
         throw new NotImplementedException();
@@ -176,4 +203,23 @@ public class Oblig1 {
         throw new NotImplementedException();
     }
 
+    public static void main(String[] args) {
+        int[] a = {1,2,11,4,2,6,7,13,9,10,8};
+        //int[] b = randPerm(20); // TODO: Bør defineres som egen metode alt. i test klassen
+
+        delsortering(a);
+
+
+        /*
+        System.out.println("Maks verdi er: "+ maks(a));
+        System.out.println("Array det jobbes på: "+Arrays.toString(a));
+        System.out.println("-------------------------------------------------");
+        System.out.println("Antall ombyttinger :"+ombyttinger(b));
+        System.out.println("Arrayet det jobbes på:"+Arrays.toString(b));
+        System.out.println("Gjennomsnittlig ombyttinger er "+gjennomsnitt(b));
+        */
+    }
+
 }  // Oblig1
+
+
