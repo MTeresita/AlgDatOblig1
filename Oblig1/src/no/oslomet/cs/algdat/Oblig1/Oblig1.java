@@ -244,21 +244,26 @@ public class Oblig1 {
         // 3. Teller hvor mange elementer som blir fjernet fra liste B
         // 4. Om A.length er like lang som elementer slettet
 
-        String[] A = a.split("");
-        String[] B = b.split("");
+        char[] A = a.toCharArray();
+        char[] B = b.toCharArray();
+
+        if(A.length <= 0){
+            return true;
+        }
 
         int teller = 0;
 
         for(int i = 0; i < B.length; i++){
             for(int j = 0; j < A.length; j++){
-                if(A[j].equals(B[i])){
-                    B[i] = "0";
+                if(A[j] == B[i]){
+                    B[i] = '0';
+                    A[j] = '1';
                     teller++;
                 }
             }
         }
 
-        if(teller == A.length){
+        if(teller >= A.length){
             return true;
         }
         return false;
@@ -307,7 +312,7 @@ public class Oblig1 {
 
         System.out.println("OPPGAVE 10:");
         String tekst = "ABBA";
-        String tekst2 = "ABOPBE";
+        String tekst2 = "RABARBRA";
         System.out.println(inneholdt(tekst, tekst2));
 
     }
