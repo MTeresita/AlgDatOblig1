@@ -228,6 +228,21 @@ public class Oblig1 {
         throw new NotImplementedException();
     }
 
+    public static void main(String[] args) {
+        int[] a = {1,2,11,4,2,6,7,13,9,10,8};
+        //int[] b = randPerm(20); // TODO: Bør defineres som egen metode alt. i test klassen
+
+        delsortering(a);
+
+    /*
+    System.out.println("Maks verdi er: "+ maks(a));
+    System.out.println("Array det jobbes på: "+Arrays.toString(a));
+    System.out.println("-------------------------------------------------");
+    System.out.println("Antall ombyttinger :"+ombyttinger(b));
+    System.out.println("Arrayet det jobbes på:"+Arrays.toString(b));
+    System.out.println("Gjennomsnittlig ombyttinger er "+gjennomsnitt(b));
+    */
+    }
 }  // Oblig1
 
 
