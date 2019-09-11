@@ -160,18 +160,25 @@ public class Oblig1 {
         return teller;
     }
 
+    /**
+     * @author Christian og Camilla
+     * @param a
+     * Metoden tar inn en liste, sorterer oddetall frem i listen, og partall bak
+     * Deretter sorteres sublistene i stigende rekkefølge
+     */
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
         //Gjøres av Signe, Camilla og Christian
         //throw new NotImplementedException();
         int oddetall = 0;
 
-        for(int i=0;i<a.length;i++){
+        for(int i=0;i<a.length;i++){ //ser etter oddetall, teller de og setter de fremst i listen
             if(a[i] % 2 == 1 || a[i] % 2 == -1){
                 bytt(a, i, oddetall);
                 oddetall++;
             }
         }
+        //sorterer sublister basert på antall oddetall funnet
         Arrays.sort(a, 0, oddetall);
         Arrays.sort(a, oddetall, a.length);
     }
