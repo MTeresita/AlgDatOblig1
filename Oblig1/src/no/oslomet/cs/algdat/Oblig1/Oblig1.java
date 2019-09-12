@@ -11,6 +11,7 @@ package no.oslomet.cs.algdat.Oblig1;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Random;
@@ -202,15 +203,76 @@ public class Oblig1 {
         System.arraycopy(b,0,a,0,k); // DAFUQ IS DIS
     }
 
+    /**
+     * @author Signe
+     */
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        throw new NotImplementedException();
+
+        String[] S = s.split("");
+        String[] T = t.split("");
+
+        //Håndtering av tomme strenger:
+        if(S.length == 0 && T.length == 0) return "";
+        if(S.length == 0) return t;
+        if(T.length == 0) return s;
+
+        int i = 0, j = 0;
+        String ut = "";
+
+        while (i < S.length && j < T.length) {
+            ut += S[i++];
+            ut += T[j++];
+        }
+        // vi må ta med resten
+        while (i < S.length) ut += S[i++];
+        while (j < T.length) ut += T[j++];
+
+        return ut;
+
     }
 
+    /**
+     * @author Signe
+     */
     /// 7b)
     public static String flett(String... s) {
-        throw new NotImplementedException();
+
+        //Her skal en liste med Strings flettes sammen.
+        //En for-løkke som går igjennom alle stringsene. For hver runde gjøres stringen om til et array og
+        //man henter ut den bokstaven som ligger på i. Sjekker først at det finnes noe på det stedet i Stringen.
+
+        if(s.length == 0){
+            return "";
+        }
+
+        //Finner lengste String:
+        int storst = s[0].length();
+        for(int a = 1; a < s.length; a++) {
+            if (s[a].length() > storst) {
+                storst = s[a].length();
+            }
+        }
+
+        String ut = "";
+
+        //Løkker som går igjennom alle Strengene i listen og setter dem inn i "ut".
+        for(int j = 0; j < storst; j++) {
+            for (int i = 0; i < s.length; i++) {
+
+                String[] a = s[i].split("");
+                if (!(a[0].equals("0"))) {
+                    try {
+                        ut += a[j];
+                    } catch (ArrayIndexOutOfBoundsException e) {
+                        a[0] = "0";
+                    }
+                }
+            }
+        }
+
+        return ut;
     }
 
     ///// Oppgave 8 //////////////////////////////////////
@@ -311,12 +373,25 @@ public class Oblig1 {
         System.out.println(testListe);
         System.out.println("-------------------------------------------------");
 
+        System.out.println("OPPGAVE 7a:");
+        String bokstaver1 = flett("ABC","DEFHG");
+        String bokstaver2 = flett("IJKLMN","OPQ");
+        String bokstaver3 = flett("","AB");
+        System.out.println(bokstaver1+" "+bokstaver2+" "+bokstaver3);
+        System.out.println("-------------------------------------------------");
+
+        System.out.println("OPPGAVE 7b:");
+        String setning = flett("AM ","L","GEDS","ORATKRR","","R TRTE","IO","TGAUU");
+        System.out.println("Stetning1 : "+setning);
+        String setning2 = flett("");
+        System.out.println("Setning2 : "+setning2);
+        System.out.println("-------------------------------------------------");
+
         System.out.println("OPPGAVE 10:");
         String tekst = "ABBA";
         String tekst2 = "RABARBRA";
         System.out.println(inneholdt(tekst, tekst2));
+        System.out.println("-------------------------------------------------");
 
     }
-
-
 }  // Oblig1
