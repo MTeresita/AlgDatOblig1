@@ -11,6 +11,7 @@ package no.oslomet.cs.algdat.Oblig1;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Random;
@@ -106,9 +107,10 @@ public class Oblig1 {
         return snitt;
     }
 
-
+    /**
+     * @author Ana-Maria og Maria
+     */
     ///// Oppgave 2 //////////////////////////////////////
-
     // hjelpemetode for å sjekke sortert rekkefølge (stigende)
     public static boolean sortertArray(int[] a){
         for(int i=0; i < a.length -1; i++){
@@ -125,15 +127,17 @@ public class Oblig1 {
             throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge!");
         }
 
+        if(a.length == 0){
+            return 0;
+        }
+
         int teller = 1;
         for (int i = 0; i < a.length -1; i++) {
             if (a[i] != a[i + 1]) {
                 teller++;
             }
-            if(a.length == 0){
-                teller = 0; // returnerer 0 hvis det er 0 forskjellige verdier i en tom tabell
-            }
         }
+
         return teller;
     }
 
@@ -189,7 +193,6 @@ public class Oblig1 {
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
         //TODO må legge til en feilmelding
-        //TODO må testes i testklassen
 
         for (int i = a.length -1; i > 0; i--){
             byttChar(a,i-1,i);
@@ -201,7 +204,6 @@ public class Oblig1 {
      */
     ///// Oppgave 6 //////////////////////////////////////
     public static void rotasjon(char[] a, int k) {
-        //TODO må testes i testklassen
         int n = a.length;
         if (n < 2){
             return;
@@ -217,15 +219,76 @@ public class Oblig1 {
         System.arraycopy(b,0,a,0,k); // DAFUQ IS DIS
     }
 
+    /**
+     * @author Signe
+     */
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        throw new NotImplementedException();
+
+        String[] S = s.split("");
+        String[] T = t.split("");
+
+        //Håndtering av tomme strenger:
+        if(S.length == 0 && T.length == 0) return "";
+        if(S.length == 0) return t;
+        if(T.length == 0) return s;
+
+        int i = 0, j = 0;
+        String ut = "";
+
+        while (i < S.length && j < T.length) {
+            ut += S[i++];
+            ut += T[j++];
+        }
+        // vi må ta med resten
+        while (i < S.length) ut += S[i++];
+        while (j < T.length) ut += T[j++];
+
+        return ut;
+
     }
 
+    /**
+     * @author Signe
+     */
     /// 7b)
     public static String flett(String... s) {
-        throw new NotImplementedException();
+
+        //Her skal en liste med Strings flettes sammen.
+        //En for-løkke som går igjennom alle stringsene. For hver runde gjøres stringen om til et array og
+        //man henter ut den bokstaven som ligger på i. Sjekker først at det finnes noe på det stedet i Stringen.
+
+        if(s.length == 0){
+            return "";
+        }
+
+        //Finner lengste String:
+        int storst = s[0].length();
+        for(int a = 1; a < s.length; a++) {
+            if (s[a].length() > storst) {
+                storst = s[a].length();
+            }
+        }
+
+        String ut = "";
+
+        //Løkker som går igjennom alle Strengene i listen og setter dem inn i "ut".
+        for(int j = 0; j < storst; j++) {
+            for (int i = 0; i < s.length; i++) {
+
+                String[] a = s[i].split("");
+                if (!(a[0].equals("0"))) {
+                    try {
+                        ut += a[j];
+                    } catch (ArrayIndexOutOfBoundsException e) {
+                        a[0] = "0";
+                    }
+                }
+            }
+        }
+
+        return ut;
     }
 
     ///// Oppgave 8 //////////////////////////////////////
@@ -350,7 +413,6 @@ public class Oblig1 {
         char[] testListe = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
 
 
-
         System.out.println("OPPGAVE 1:");
         System.out.println("Maks verdi er: " + maks(a));
         System.out.println("Array det jobbes på: " + Arrays.toString(a));
@@ -383,10 +445,25 @@ public class Oblig1 {
         System.out.println(testListe);
         System.out.println("-------------------------------------------------");
 
+        System.out.println("OPPGAVE 7a:");
+        String bokstaver1 = flett("ABC","DEFHG");
+        String bokstaver2 = flett("IJKLMN","OPQ");
+        String bokstaver3 = flett("","AB");
+        System.out.println(bokstaver1+" "+bokstaver2+" "+bokstaver3);
+        System.out.println("-------------------------------------------------");
+
+        System.out.println("OPPGAVE 7b:");
+        String setning = flett("AM ","L","GEDS","ORATKRR","","R TRTE","IO","TGAUU");
+        System.out.println("Stetning1 : "+setning);
+        String setning2 = flett("");
+        System.out.println("Setning2 : "+setning2);
+        System.out.println("-------------------------------------------------");
+
         System.out.println("OPPGAVE 10:");
         String tekst = "ABBA";
         String tekst2 = "RABARBRA";
         System.out.println(inneholdt(tekst, tekst2));
+        System.out.println("-------------------------------------------------");
 
         int[] test = {3,14,4,7,345,6,4};
         int[] test2 = indekssortering(test);
@@ -394,6 +471,4 @@ public class Oblig1 {
 
 
     }
-
-
 }  // Oblig1
