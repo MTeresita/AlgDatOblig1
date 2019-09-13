@@ -109,6 +109,7 @@ public class Oblig1 {
 
 
     ///// Oppgave 2 //////////////////////////////////////
+    //TODO: DEnne hikker litt i testen, det må ryddes..!
 
     // hjelpemetode for å sjekke sortert rekkefølge (stigende)
     public static boolean sortertArray(int[] a){
@@ -190,7 +191,6 @@ public class Oblig1 {
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
         //TODO må legge til en feilmelding
-        //TODO må testes i testklassen
 
         for (int i = a.length -1; i > 0; i--){
             byttChar(a,i-1,i);
@@ -202,7 +202,6 @@ public class Oblig1 {
      */
     ///// Oppgave 6 //////////////////////////////////////
     public static void rotasjon(char[] a, int k) {
-        //TODO må testes i testklassen
         int n = a.length;
         if (n < 2){
             return;
