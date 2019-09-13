@@ -291,6 +291,14 @@ public class Oblig1 {
         return ut;
     }
 
+    /**
+     *
+     * @param a
+     * @return indeks
+     * @author Camilla, Ana-Maria, Christian, Signe
+     *
+     */
+
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
         //throw new NotImplementedException();
