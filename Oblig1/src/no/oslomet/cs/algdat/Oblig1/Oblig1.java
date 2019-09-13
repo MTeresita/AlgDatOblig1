@@ -230,7 +230,64 @@ public class Oblig1 {
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        if(a.length == 0){
+            int[] indeks = new int[a.length];
+            return indeks;
+        }
+        else if(a == null || a.length == 1){
+            int[] indeks = new int[1];
+            return indeks;
+        }
+        else{
+            int[] sortert = new int[a.length];
+            int[] indeks = new int[a.length];
+
+            for (int i = 0; i < a.length; i++) {
+                sortert[i] = a[i];
+            }
+            sortering(sortert);
+
+            for (int i = 0; i < sortert.length; i++) {
+                for (int j = 0; j < a.length; j++) {
+                    if (sortert[i] == a[j]) {
+                        indeks[i] = j;
+                    }
+                }
+            }
+            return indeks;
+        }
+    }
+
+    //HJELPEMETODER
+    public static void sortering(int[] a){
+        int n = a.length;   // tabellens lengde
+
+        if (n < 2) throw   // må ha minst to verdier!
+                new java.util.NoSuchElementException("a.length(" + n + ") < 2!");
+
+        int m; //største, av gjenværende verdier i array
+
+        for (int i = n; i > 1; i--){
+            m = maks(a, 0, i);
+            bytt(a, i-1, m);
+        }
+    }
+
+    public static int maks(int[] a, int fra, int til) {
+        if(a == null){
+            throw new NullPointerException("tabellen a er null"); //sjekker om tabellen er null
+        }
+        int m = fra;              // indeks til største verdi i a[fra:til>
+        int maksverdi = a[fra];   // største verdi i a[fra:til>
+
+        for (int i = fra+1; i < til; i++) {
+            if (a[i] > maksverdi) {
+                m = i;                // indeks til største verdi oppdateres
+                maksverdi = a[m];     // største verdi oppdateres
+            }
+        }
+        return m;  // posisjonen til største verdi i a[fra:til>
     }
 
 
@@ -330,6 +387,11 @@ public class Oblig1 {
         String tekst = "ABBA";
         String tekst2 = "RABARBRA";
         System.out.println(inneholdt(tekst, tekst2));
+
+        int[] test = {3,14,4,7,345,6,4};
+        int[] test2 = indekssortering(test);
+        System.out.println(Arrays.toString(test2));
+
 
     }
 
