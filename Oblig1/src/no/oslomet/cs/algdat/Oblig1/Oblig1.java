@@ -323,7 +323,7 @@ public class Oblig1 {
             int gjeldeneNummer;
             while (peker < indeks.length){
                 gjeldeneNummer = indeks[peker];
-                for(int i = 0; i < indeks.length; i++){
+                for(int i = 0; i < indeks.length-1; i++){
                     if(gjeldeneNummer == indeks[i] && i>peker){
                         indeks[i] = i;
                         break;
