@@ -318,6 +318,19 @@ public class Oblig1 {
                     }
                 }
             }
+
+            int peker = 0;
+            int gjeldeneNummer;
+            while (peker < indeks.length){
+                gjeldeneNummer = indeks[peker];
+                for(int i = 0; i < indeks.length; i++){
+                    if(gjeldeneNummer == indeks[i] && i>peker){
+                        indeks[i] = i;
+                        break;
+                    }
+                }
+                peker++;
+            }
             return indeks;
         }
     }
@@ -467,6 +480,7 @@ public class Oblig1 {
 
         int[] test = {3,14,4,7,345,6,4};
         int[] test2 = indekssortering(test);
+        System.out.println(Arrays.toString(test));
         System.out.println(Arrays.toString(test2));
 
 
