@@ -107,10 +107,10 @@ public class Oblig1 {
         return snitt;
     }
 
-
+    /**
+     * @author Ana-Maria og Maria
+     */
     ///// Oppgave 2 //////////////////////////////////////
-    //TODO: DEnne hikker litt i testen, det må ryddes..!
-
     // hjelpemetode for å sjekke sortert rekkefølge (stigende)
     public static boolean sortertArray(int[] a){
         for(int i=0; i < a.length -1; i++){
@@ -127,15 +127,17 @@ public class Oblig1 {
             throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge!");
         }
 
+        if(a.length == 0){
+            return 0;
+        }
+
         int teller = 1;
         for (int i = 0; i < a.length -1; i++) {
             if (a[i] != a[i + 1]) {
                 teller++;
             }
-            if(a.length == 0){
-                teller = 0; // returnerer 0 hvis det er 0 forskjellige verdier i en tom tabell
-            }
         }
+
         return teller;
     }
 
@@ -352,7 +354,6 @@ public class Oblig1 {
         int[] sortert = {3, 3, 4, 5, 5, 6, 6, 7, 7, 7, 8};
         int[] usortert = {5, 3, 7, 4, 3, 5, 7, 8, 6, 7};
         char[] testListe = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
-
 
 
         System.out.println("OPPGAVE 1:");
