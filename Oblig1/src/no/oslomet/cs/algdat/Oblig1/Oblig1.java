@@ -172,7 +172,6 @@ public class Oblig1 {
      */
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        //Gjøres av Signe, Camilla og Christian
         //throw new NotImplementedException();
         int oddetall = 0;
 
@@ -182,9 +181,31 @@ public class Oblig1 {
                 oddetall++;
             }
         }
-        //sorterer sublister basert på antall oddetall funnet
-        Arrays.sort(a, 0, oddetall);
-        Arrays.sort(a, oddetall, a.length);
+        quickSort(a, 0, oddetall-1);
+        quickSort(a, oddetall, a.length-1);
+    }
+
+    //HJELPEMETODER
+    private static int partition(int[] a, int begin, int end) {
+        int pivot = a[end];
+        int j = (begin-1);
+
+        for (int i = begin; i < end; i++) {
+            if (a[i] <= pivot) {
+                j++;
+                bytt(a, i, j);
+            }
+        }
+        bytt(a, j+1, end);
+        return j+1;
+    }
+
+    public static void quickSort(int[] values, int left, int right) {
+        if (left < right) {
+            int pivot_index = partition(values, left, right);
+            quickSort(values, left, pivot_index-1);
+            quickSort(values, pivot_index+1, right);
+        }
     }
 
     /**
