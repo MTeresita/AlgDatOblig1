@@ -11,8 +11,11 @@ Oppgaven er levert av følgende studenter:
 # Arbeidsfordeling
 
 I oppgaven har vi hatt følgende arbeidsfordeling:
-* Per har hatt hovedansvar for oppgave 1, 3, og 5. 
-* Else har hatt hovedansvar for oppgave 2, 4, og 6. 
-* Fatima har hatt hovedansvar for oppgave 7 og 8. 
-* Vi har i fellesskap løst oppgave 10. 
+* Maria har jobbet på oppgave 2, 5, 6 og 10
+* Signe har har jobbet på oppgave 5, 6, 7, 8 og 10.
+* Christian har jobbet på oppgave 4, 8, 9 og 10.
+* Camilla har jobbet på oppgave 1, 4, 7 og 8.
+* Ana-Maria har jobbet på oppgave 1, 2, 3, og 8.
 
+* Som du ser har vi parprogrammert på mange av oppgavene, men på tvers av gruppa.
+* Tanken var at alle skulle få prøvd seg på de forskjellige oppgavene så godt det lot seg gjøre.
