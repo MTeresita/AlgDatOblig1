@@ -1,6 +1,6 @@
 package no.oslomet.cs.algdat.Oblig1;
 
-////// Løsningsforslag Oblig 1 - 2019 ////////////////////////
+////// Loesningsforslag Oblig 1 - 2019 ////////////////////////
 /**
  * Camilla Hoelgaard - s333783
  * Maria Teresita Halvorsen - s326325
@@ -23,7 +23,7 @@ public class Oblig1 {
     private Oblig1() {
     }
 
-    // hjelpemetode som bytter plass på verdiene når den kalles
+    // hjelpemetode som bytter plass paa verdiene naar den kalles
     public static void bytt(int[] a, int i, int j){
         int temp = a[i]; a[i] = a[j]; a[j] = temp;
     }
@@ -34,19 +34,20 @@ public class Oblig1 {
         a[c] = temp;
     }
 
-    /** Oppg.1 :
+    /** Oppgave 1
+     *
      * @author Ana-Maria og Camilla
-     * Gitt en tabell med tallene fra 1 til n vil det være :
-     * 1) Flest ombyttinger: når største verdi er på indeks 0
-     * 2) Færrest ombyttinger: tabellen er sortert stigende
-     * 3) Finner gjennomsnitt antall ganger ved å beregne antall operasjoner som gjøres i ombyttinger():
+     * Gitt en tabell med tallene fra 1 til n vil det vaere :
+     * 1) Flest ombyttinger: naar stoerste verdi er paa indeks 0
+     * 2) Faerrest ombyttinger: tabellen er sortert stigende
+     * 3) Finner gjennomsnitt antall ganger ved aa beregne antall operasjoner som gjoeres i ombyttinger():
      *    2 + n - 1 + 1 + n + 3n + 2x + 1 = 3 + 5n + 2x. Det harmoniske tallet er 5n.
-     *    Vi får en en 0(n) - algoritme.
-     * 4) Er denne maks metoden bedre (eller dårligere) enn de maks metodene vi har sett på tidligere?
-     * - Hvis vi fokuser på sammenligningen i for-løkken -> if(a[i] > a[i+1] har vi her sammenlignet med
+     *    Vi faar en en 0(n) - algoritme.
+     * 4) Er denne maks metoden bedre (eller daarligere) enn de maks metodene vi har sett paa tidligere?
+     * - Hvis vi fokuser paa sammenligningen i for-loekken -> if(a[i] > a[i+1] har vi her, sammenlignet med
      *   de andre maksmetodene én tabelloperasjon ekstra (a[i+1]).
-     *   De andre maksmetodene setter tilordningen maksverdi utenfor for-løkken, dermed vil ikke denne operasjonen
-     *   skje for hver gang det itereres gjennom løkken. Med andre ord kan man si at den er noe mindre effektiv.
+     *   De andre maksmetodene setter tilordningen maksverdi utenfor for-loekken, dermed vil ikke denne operasjonen
+     *   skje for hver gang det itereres gjennom loekken. Med andre ord kan man si at den er noe mindre effektiv.
      *
      */
 
@@ -93,7 +94,7 @@ public class Oblig1 {
         return teller; // Returnerer antall ombyttinger
     }
 
-    // Egendefinert metode for å beregne gjennomsnittet
+    // Egendefinert metode for aa beregne gjennomsnittet
     public static int gjennomsnitt(int[] a){
         int sum = 0;
 
@@ -104,11 +105,12 @@ public class Oblig1 {
         return snitt;
     }
 
-    /**
+    /** Oppgave 2
+     *
      * @author Ana-Maria og Maria
      */
     ///// Oppgave 2 //////////////////////////////////////
-    // hjelpemetode for å sjekke sortert rekkefølge (stigende)
+    // hjelpemetode for aa sjekke sortert rekkefoelge (stigende)
     public static boolean sortertArray(int[] a){
         for(int i=0; i < a.length -1; i++){
             if(a[i] > a[i+1]) {
@@ -121,7 +123,7 @@ public class Oblig1 {
     public static int antallUlikeSortert(int[] a) {
 
         if (!sortertArray(a)) {
-            throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge!");
+            throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefoelge!");
         }
 
         if(a.length == 0){
@@ -139,7 +141,8 @@ public class Oblig1 {
     }
 
 
-    /**
+    /** Oppgave 3
+     *
      * @author Ana-Maria
      */
     ///// Oppgave 3 //////////////////////////////////////
@@ -165,15 +168,15 @@ public class Oblig1 {
         return teller;
     }
 
-    /**
+    /** Oppgave 4
+     *
      * @author Christian og Camilla
      * @param a
-     * Metoden tar inn en liste, sorterer oddetall frem i listen, og partall bak
-     * Deretter sorteres sublistene i stigende rekkefølge
+     * Metoden tar inn en liste, sorterer oddetall til høyre i listen, og partall til venstre.
+     * Deretter sorteres sublistene i stigende rekkefoelge
      */
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        //throw new NotImplementedException();
         int oddetall = 0;
 
         for(int i=0;i<a.length;i++){ //ser etter oddetall, teller de og setter de fremst i listen
@@ -209,19 +212,21 @@ public class Oblig1 {
         }
     }
 
-    /**
+    /** Oppgave 5
+     *
      * @author Signe og Maria
      */
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
-        //TODO må legge til en feilmelding
+        //TODO maa legge til en feilmelding
 
         for (int i = a.length -1; i > 0; i--){
             byttChar(a,i-1,i);
         }
 
     }
-    /**
+    /** Oppgave 6
+     *
      * @author Signe og Maria
      */
     ///// Oppgave 6 //////////////////////////////////////
@@ -238,10 +243,11 @@ public class Oblig1 {
         for(int i = n-1; i >= k; i--){
             a[i] = a[i-k];
         }
-        System.arraycopy(b,0,a,0,k); // DAFUQ IS DIS
+        System.arraycopy(b,0,a,0,k);
     }
 
-    /**
+    /** Oppgave 7a)
+     *
      * @author Signe
      */
     ///// Oppgave 7 //////////////////////////////////////
@@ -251,7 +257,7 @@ public class Oblig1 {
         String[] S = s.split("");
         String[] T = t.split("");
 
-        //Håndtering av tomme strenger:
+        //Haandtering av tomme strenger:
         if(S.length == 0 && T.length == 0) return "";
         if(S.length == 0) return t;
         if(T.length == 0) return s;
@@ -263,7 +269,7 @@ public class Oblig1 {
             ut += S[i++];
             ut += T[j++];
         }
-        // vi må ta med resten
+        // vi maa ta med resten
         while (i < S.length) ut += S[i++];
         while (j < T.length) ut += T[j++];
 
@@ -271,15 +277,16 @@ public class Oblig1 {
 
     }
 
-    /**
+    /** Oppgave 7b)
+     *
      * @author Signe
      */
     /// 7b)
     public static String flett(String... s) {
 
         //Her skal en liste med Strings flettes sammen.
-        //En for-løkke som går igjennom alle stringsene. For hver runde gjøres stringen om til et array og
-        //man henter ut den bokstaven som ligger på i. Sjekker først at det finnes noe på det stedet i Stringen.
+        //En for-loekke som gaar igjennom alle stringsene. For hver runde gjoeres stringen om til et array og
+        //man henter ut den bokstaven som ligger paa i. Sjekker foerst at det finnes noe paa det stedet i Stringen.
 
         if(s.length == 0){
             return "";
@@ -295,7 +302,7 @@ public class Oblig1 {
 
         String ut = "";
 
-        //Løkker som går igjennom alle Strengene i listen og setter dem inn i "ut".
+        //Loekker som gaar igjennom alle Strengene i listen og setter dem inn i "ut".
         for(int j = 0; j < storst; j++) {
             for (int i = 0; i < s.length; i++) {
 
@@ -313,7 +320,7 @@ public class Oblig1 {
         return ut;
     }
 
-    /**
+    /** Oppgave 8
      *
      * @param a
      * @return indeks
@@ -323,7 +330,6 @@ public class Oblig1 {
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
-        //throw new NotImplementedException();
         if(a.length == 0){
             int[] indeks = new int[a.length];
             return indeks;
@@ -369,10 +375,10 @@ public class Oblig1 {
     public static void sortering(int[] a){
         int n = a.length;   // tabellens lengde
 
-        if (n < 2) throw   // må ha minst to verdier!
+        if (n < 2) throw   // maa ha minst to verdier!
                 new java.util.NoSuchElementException("a.length(" + n + ") < 2!");
 
-        int m; //største, av gjenværende verdier i array
+        int m; //stoerste, av gjenvaerende verdier i array
 
         for (int i = n; i > 1; i--){
             m = maks(a, 0, i);
@@ -384,19 +390,20 @@ public class Oblig1 {
         if(a == null){
             throw new NullPointerException("tabellen a er null"); //sjekker om tabellen er null
         }
-        int m = fra;              // indeks til største verdi i a[fra:til>
-        int maksverdi = a[fra];   // største verdi i a[fra:til>
+        int m = fra;              // indeks til stoerste verdi i a[fra:til>
+        int maksverdi = a[fra];   // stoerste verdi i a[fra:til>
 
         for (int i = fra+1; i < til; i++) {
             if (a[i] > maksverdi) {
-                m = i;                // indeks til største verdi oppdateres
-                maksverdi = a[m];     // største verdi oppdateres
+                m = i;                // indeks til stoerste verdi oppdateres
+                maksverdi = a[m];     // stoerste verdi oppdateres
             }
         }
-        return m;  // posisjonen til største verdi i a[fra:til>
+        return m;  // posisjonen til stoerste verdi i a[fra:til>
     }
 
-    /**
+    /** Oppgave 9
+     *
      * @author Christian
      * @param a
      * @return
@@ -431,17 +438,17 @@ public class Oblig1 {
                         tredminverdi = nestminverdi;
 
                         nm = m;
-                        nestminverdi = minverdi;     // ny nest størst
+                        nestminverdi = minverdi;     // ny nest stoerst
 
                         m = i;
-                        minverdi = a[m];              // ny størst
+                        minverdi = a[m];              // ny stoerst
                     }
                     else{
                         tm = nm;
                         tredminverdi = nestminverdi;
 
                         nm = i;
-                        nestminverdi = a[nm];         // ny nest størst
+                        nestminverdi = a[nm];         // ny nest stoerst
                     }
                 }
                 else{
@@ -454,11 +461,12 @@ public class Oblig1 {
     } // tredMin
 
     ///// Oppgave 10 //////////////////////////////////////
-    public static int bokstavNr(char bokstav) { //TODO: Høre med André om det er krise at vi ikke bruker denn e metioen
+    public static int bokstavNr(char bokstav) { //TODO: Hoere med André om det er krise at vi ikke bruker denne metoden.
         throw new NotImplementedException();
     }
 
-    /**
+    /** Oppgave 10
+     * 
      * @author Signe og Maria
      */
     public static boolean inneholdt(String a, String b) {
@@ -491,10 +499,10 @@ public class Oblig1 {
         return false;
     }
 
-    // For testing per nå - endres / fjernes
+    // For testing per naa - endres / fjernes
     public static void main(String[] args) {
         int[] a = {1, 2, 11, 4, 2, 6, 7, 13, 9, 10};
-        int[] b = randPerm(20); // TODO: Bør defineres som egen metode alt. i test klassen
+        int[] b = randPerm(20); // TODO: Boer defineres som egen metode alt. i test klassen
         int[] sortert = {3, 3, 4, 5, 5, 6, 6, 7, 7, 7, 8};
         int[] usortert = {5, 3, 7, 4, 3, 5, 7, 8, 6, 7};
         char[] testListe = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
