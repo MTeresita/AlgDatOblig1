@@ -322,7 +322,7 @@ public class Oblig1 {
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
-        //throw new NotImplementedException();
+
         if(a.length == 0){
             int[] indeks = new int[a.length];
             return indeks;
@@ -398,8 +398,42 @@ public class Oblig1 {
 
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
-        throw new NotImplementedException();
-    }
+        int n = a.length;
+        if (n < 3){
+            throw new java.util.NoSuchElementException("a.length(" + n + ") < 3!");
+        }
+
+        int indexMin = 0;
+        int indexNestMin = 1;
+        int indexTredMin = 2;
+
+        if (a[1] < a[0]) {
+            indexMin = 1;
+            indexNestMin = 0;
+        }
+
+        int minverdi = a[indexMin];
+        int nestminverdi = a[indexNestMin];
+
+        for (int i = 2; i < n; i++) {
+            if (a[i] < nestminverdi) {
+                if (a[i] < minverdi) {
+                    indexNestMin = indexMin;
+                    nestminverdi = minverdi;
+
+                    indexMin = i;
+                    minverdi = a[indexMin];
+                }
+                else {
+                    indexNestMin = i;
+                    nestminverdi = a[indexNestMin];
+                }
+            }
+        }
+        return new int[] {indexMin,indexNestMin};
+
+    } // nestMaks
+
 
     ///// Oppgave 10 //////////////////////////////////////
     public static int bokstavNr(char bokstav) {
@@ -507,10 +541,11 @@ public class Oblig1 {
         System.out.println(inneholdt(tekst, tekst2));
         System.out.println("-------------------------------------------------");
 
-        int[] test = {3,14,4,7,345,6,4};
+        int[] test = {3,14,4,7,35,6,1,4};
         int[] test2 = indekssortering(test);
-        System.out.println(Arrays.toString(test));
-        System.out.println(Arrays.toString(test2));
+        //System.out.println(Arrays.toString(test));
+        //System.out.println(Arrays.toString(test2));
+        System.out.println(Arrays.toString(tredjeMin(test)));
 
 
     }
