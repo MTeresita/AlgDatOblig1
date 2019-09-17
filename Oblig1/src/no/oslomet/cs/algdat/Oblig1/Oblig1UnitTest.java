@@ -10,7 +10,7 @@ class Oblig1UnitTest {
 
     @org.junit.jupiter.api.Test
     void maks() {
-        assertEquals(true, false, "Implementer maks og denne testen");
+        assertEquals(true, false, "Implementer Maks og denne testen");
     }
 
     @org.junit.jupiter.api.Test

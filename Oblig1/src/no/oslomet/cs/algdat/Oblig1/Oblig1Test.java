@@ -33,7 +33,7 @@ public class Oblig1Test {
         boolean unntak = false;
         int[] tom = {};
         try {
-            Oblig1.maks(tom);  // kaller maks-metoden
+            Oblig1.maks(tom);  // kaller Maks-metoden
         } catch (Exception e) {
             unntak = true;
             if (!(e instanceof java.util.NoSuchElementException)) {
