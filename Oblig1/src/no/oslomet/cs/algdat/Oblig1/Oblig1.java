@@ -172,7 +172,7 @@ public class Oblig1 {
      *
      * @author Christian og Camilla
      * @param a
-     * Metoden tar inn en liste, sorterer oddetall til høyre i listen, og partall til venstre.
+     * Metoden tar inn en liste, sorterer oddetall til hoeyre i listen, og partall til venstre.
      * Deretter sorteres sublistene i stigende rekkefoelge
      */
     ///// Oppgave 4 //////////////////////////////////////
@@ -326,6 +326,7 @@ public class Oblig1 {
      * @return indeks
      * @author Camilla, Ana-Maria, Christian, Signe
      *
+     *
      */
 
     ///// Oppgave 8 //////////////////////////////////////
@@ -410,10 +411,10 @@ public class Oblig1 {
      */
 
     ///// Oppgave 9 //////////////////////////////////////
-    public static int[] tredjeMin(int[] a) // ny versjon
+    public static int[] tredjeMin(int[] a) // ny versjon5
     {
         int n = a.length;     // tabellens lengde
-        if (n < 3) throw      // må ha minst tre verdier
+        if (n < 3) throw      // maa ha minst tre verdier
                 new java.util.NoSuchElementException("a.length(" + n + ") < 3!");
 
         int[] b = new int[3];
@@ -478,11 +479,11 @@ public class Oblig1 {
         char[] B = b.toCharArray();
 
 
-        for (char c : A) { // øker verdien til posisjonen som matcher ASCII-nr til bokstaven
+        for (char c : A) { // oeker verdien til posisjonen som matcher ASCII-nr til bokstaven
             forekomstAvBokstaverIA[c]++;
         }
 
-        for (char c : B) { // øker verdien til posisjonen som matcher ASCII-nr til bokstaven
+        for (char c : B) { // oeker verdien til posisjonen som matcher ASCII-nr til bokstaven
             forekomstAvBokstaverIB[c]++;
         }
 
