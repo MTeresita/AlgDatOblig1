@@ -395,11 +395,62 @@ public class Oblig1 {
         return m;  // posisjonen til største verdi i a[fra:til>
     }
 
+    /**
+     * @author Christian
+     * @param a
+     * @return
+     */
 
     ///// Oppgave 9 //////////////////////////////////////
-    public static int[] tredjeMin(int[] a) {
-        throw new NotImplementedException();
-    }
+    public static int[] tredjeMin(int[] a) // ny versjon
+    {
+        int n = a.length;     // tabellens lengde
+        if (n < 3) throw      // må ha minst tre verdier
+                new java.util.NoSuchElementException("a.length(" + n + ") < 3!");
+
+        int[] b = new int[3];
+        for (int i = 0; i < b.length; i++){
+            b[i] = a[i];
+        }
+
+        int[] bSortert = indekssortering(b);
+        int m = bSortert[0];
+        int nm = bSortert[1];
+        int tm = bSortert[2];
+
+        int minverdi = a[m];                // minste verdi
+        int nestminverdi = a[nm];           // nest minste verdi
+        int tredminverdi = a[tm];           // tred minste verdi
+
+        for (int i = 3; i < n; i++) {
+            if (a[i] < tredminverdi) {
+                if (a[i] < nestminverdi) {
+                    if (a[i] < minverdi) {
+                        tm = nm;
+                        tredminverdi = nestminverdi;
+
+                        nm = m;
+                        nestminverdi = minverdi;     // ny nest størst
+
+                        m = i;
+                        minverdi = a[m];              // ny størst
+                    }
+                    else{
+                        tm = nm;
+                        tredminverdi = nestminverdi;
+
+                        nm = i;
+                        nestminverdi = a[nm];         // ny nest størst
+                    }
+                }
+                else{
+                    tm = i;
+                    tredminverdi = a[tm];
+                }
+            }
+        }
+        return new int[] {m,nm,tm};    // m i posisjon 0, nm i posisjon 1, tm i posisjon 3
+    } // tredMin
 
     ///// Oppgave 10 //////////////////////////////////////
     public static int bokstavNr(char bokstav) {
