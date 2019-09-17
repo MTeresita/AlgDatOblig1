@@ -467,36 +467,32 @@ public class Oblig1 {
 
     /** Oppgave 10
      * 
-     * @author Signe og Maria
+     * @author Signe, Maria og Christian
      */
     public static boolean inneholdt(String a, String b) {
 
-        if(a.length() == 0){
-            return true;
-        }
+        int[] forekomstAvBokstaverIA = new int[256];    // array med lengden til alle tegn i ASCII - totalt 256
+        int[] forekomstAvBokstaverIB = new int[256];
 
-        char[] A = a.toCharArray();
-        Arrays.sort(A);
+        char[] A = a.toCharArray();  // sorterer alle bokstaver i alfabetisk rekkefølge.
         char[] B = b.toCharArray();
-        Arrays.sort(B);
 
-        int teller = 0;
 
-        int i = 0;
-        int j = 0;
+        for (char c : A) { // øker verdien til posisjonen som matcher ASCII-nr til bokstaven
+            forekomstAvBokstaverIA[c]++;
+        }
 
-        while(i < A.length && j < B.length){
-            if(A[i] == B[j]){
-                teller++;
-                i++;
+        for (char c : B) { // øker verdien til posisjonen som matcher ASCII-nr til bokstaven
+            forekomstAvBokstaverIB[c]++;
+        }
+
+        //sjekker om antall forekomst i A er lik forekomst i B.
+        for (int i = 0; i < 256; i++) {
+            if (forekomstAvBokstaverIB[i] < forekomstAvBokstaverIA[i]) {
+                return false;
             }
-            j++;
         }
-
-        if(teller == A.length){
-            return true;
-        }
-        return false;
+        return true;
     }
 
     // For testing per naa - endres / fjernes
