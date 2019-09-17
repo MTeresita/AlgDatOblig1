@@ -32,7 +32,7 @@ public class Oblig1 {
         a[c] = temp;
     }
 
-    // TODO: randPerm metode som generer tilfeldige tall
+    // randPerm metode som generer tilfeldige tall - brukt ifm testing i main
     public static int[] randPerm(int n){
         Random r = new Random();         // en randomgenerator
         int[] a = new int[n];
@@ -92,7 +92,7 @@ public class Oblig1 {
         return teller; // Returnerer antall ombyttinger
     }
 
-    // TODO: Egendefinert metode for aa beregne gjennomsnittet - brukt ifm testing for å svare på teorispm.
+    // Egendefinert metode for aa beregne gjennomsnittet - brukt ifm testing for å svare på teorispm.
     public static int gjennomsnitt(int[] a){
         int sum = 0;
 
@@ -273,7 +273,7 @@ public class Oblig1 {
         while(j < T.length){
             ut += T[j++];
         }
-        
+
         return ut;
 
     }
