@@ -454,7 +454,7 @@ public class Oblig1 {
     } // tredMin
 
     ///// Oppgave 10 //////////////////////////////////////
-    public static int bokstavNr(char bokstav) {
+    public static int bokstavNr(char bokstav) { //TODO: Høre med André om det er krise at vi ikke bruker denn e metioen
         throw new NotImplementedException();
     }
 
