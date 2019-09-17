@@ -92,7 +92,7 @@ public class Oblig1 {
         return teller; // Returnerer antall ombyttinger
     }
 
-    // Egendefinert metode for aa beregne gjennomsnittet - brukt ifm testing for å svare på teorispm.
+    // TODO: Egendefinert metode for aa beregne gjennomsnittet - brukt ifm testing for å svare på teorispm.
     public static int gjennomsnitt(int[] a){
         int sum = 0;
 
@@ -134,7 +134,6 @@ public class Oblig1 {
                 teller++;
             }
         }
-
         return teller;
     }
 
