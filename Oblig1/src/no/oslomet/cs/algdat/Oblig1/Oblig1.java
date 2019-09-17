@@ -463,36 +463,29 @@ public class Oblig1 {
      */
     public static boolean inneholdt(String a, String b) {
 
-        //TODO: Vi har funnet en løsning uten å bruke hjelpemetode, funker det mon tro?? :/
-
-        // Metoden skal ta inn to ord, begge inneholder kun store bokstaver. Ord A og B
-        // Det skal sjekkes om alle bokstavene i A inngår i B.
-
-        // 1. Splitte opp ordene i to lister
-        // 2. Sjekke liste B opp imot liste A, fjerner elementet om det finne det
-        // 3. Teller hvor mange elementer som blir fjernet fra liste B
-        // 4. Om A.length er like lang som elementer slettet
-
-        char[] A = a.toCharArray();
-        char[] B = b.toCharArray();
-
-        if(A.length <= 0){
+        if(a.length() == 0){
             return true;
         }
 
+        char[] A = a.toCharArray();
+        Arrays.sort(A);
+        char[] B = b.toCharArray();
+        Arrays.sort(B);
+
         int teller = 0;
 
-        for(int i = 0; i < B.length; i++){
-            for(int j = 0; j < A.length; j++){
-                if(A[j] == B[i]){
-                    B[i] = '0';
-                    A[j] = '1';
-                    teller++;
-                }
+        int i = 0;
+        int j = 0;
+
+        while(i < A.length && j < B.length){
+            if(A[i] == B[j]){
+                teller++;
+                i++;
             }
+            j++;
         }
 
-        if(teller >= A.length){
+        if(teller == A.length){
             return true;
         }
         return false;
@@ -563,7 +556,6 @@ public class Oblig1 {
         int[] test2 = indekssortering(test);
         System.out.println(Arrays.toString(test));
         System.out.println(Arrays.toString(test2));
-
-
+        
     }
 }  // Oblig1
