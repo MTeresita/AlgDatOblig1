@@ -23,7 +23,7 @@ public class Oblig1 {
     private Oblig1() {
     }
 
-    // hjelpe metode som bytter plass på verdiene når den kalles
+    // hjelpemetode som bytter plass på verdiene når den kalles
     public static void bytt(int[] a, int i, int j){
         int temp = a[i]; a[i] = a[j]; a[j] = temp;
     }
@@ -37,9 +37,17 @@ public class Oblig1 {
     /** Oppg.1 :
      * @author Ana-Maria og Camilla
      * Gitt en tabell med tallene fra 1 til n vil det være :
-     * Flest ombyttinger: når største verdi er på indeks 0
-     * Færrest ombyttinger: omvendt av over - når største verdi er på siste indeks
-     * I gjennomsnitt vil det være // TODO: generelt eller spesifikt for et gitt antall n av randPerm?
+     * 1) Flest ombyttinger: når største verdi er på indeks 0
+     * 2) Færrest ombyttinger: tabellen er sortert stigende
+     * 3) Finner gjennomsnitt antall ganger ved å beregne antall operasjoner som gjøres i ombyttinger():
+     *    2 + n - 1 + 1 + n + 3n + 2x + 1 = 3 + 5n + 2x. Det harmoniske tallet er 5n.
+     *    Vi får en en 0(n) - algoritme.
+     * 4) Er denne maks metoden bedre (eller dårligere) enn de maks metodene vi har sett på tidligere?
+     * - Hvis vi fokuser på sammenligningen i for-løkken -> if(a[i] > a[i+1] har vi her sammenlignet med
+     *   de andre maksmetodene én tabelloperasjon ekstra (a[i+1]).
+     *   De andre maksmetodene setter tilordningen maksverdi utenfor for-løkken, dermed vil ikke denne operasjonen
+     *   skje for hver gang det itereres gjennom løkken. Med andre ord kan man si at den er noe mindre effektiv.
+     *
      */
 
     ///// Oppgave 1 //////////////////////////////////////
@@ -57,35 +65,23 @@ public class Oblig1 {
         return a[a.length-1];
     }
 
-    // Henter inn hjelpemetoder
-    public static void randPerm(int[] a) {
-        Random r = new Random();     // en randomgenerator
-
-        for (int k = a.length - 1; k > 0; k--) {
-            int i = r.nextInt(k + 1);  // tilfeldig tall fra [0,k]
-            bytt(a, k, i);
-        }
-    }
-
-    public static int[] randPerm(int n) { // stokker om a
-        Random r = new Random();         // en randomgenerator (hentes fra java.util)
-        int[] a = new int[n];            // en tabell med plass til n tall
+    // randPerm metode som generer tilfeldige tall
+    public static int[] randPerm(int n) {
+        Random r = new Random();         // en randomgenerator
+        int[] a = new int[n];
 
         Arrays.setAll(a, i -> i + 1);    // legger inn tallene 1, 2, . , n
 
-        for (int k = n - 1; k > 0; k--){ // løkke som går n - 1 ganger
+        for (int k = n - 1; k > 0; k--){
 
-            int i = r.nextInt(k+1);        // en tilfeldig tall fra 0 til k [0,k]
-            bytt(a,k,i);                   // bytter om
+            int i = r.nextInt(k+1);
+            bytt(a,k,i);
         }
 
-        return a;                        // permutasjonen returneres
+        return a;  // permutasjonen returneres
     }
 
     public static int ombyttinger(int[] a) {
-
-        //throw new NotImplementedException(); // TODO: se på denne (original)
-
         int teller = 0;
 
         for(int i=0; i < a.length -1; i++){
@@ -97,7 +93,7 @@ public class Oblig1 {
         return teller; // Returnerer antall ombyttinger
     }
 
-    // Egendef metode
+    // Egendefinert metode for å beregne gjennomsnittet
     public static int gjennomsnitt(int[] a){
         int sum = 0;
 
@@ -148,7 +144,11 @@ public class Oblig1 {
      */
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        //throw new NotImplementedException();
+
+        if(a.length == 0){ // Returnerer 0 dersom tabellen er tom
+            return 0;
+        }
+
         int teller = 0;
         for(int i = 0; i < a.length; i++){
             boolean duplikat = false;
