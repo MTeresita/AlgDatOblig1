@@ -35,10 +35,11 @@ public class Oblig1 {
     }
 
     /** Oppg.1 :
+     * @author Ana-Maria og Camilla
      * Gitt en tabell med tallene fra 1 til n vil det være :
      * Flest ombyttinger: når største verdi er på indeks 0
      * Færrest ombyttinger: omvendt av over - når største verdi er på siste indeks
-     * I gjennomsnitt:
+     * I gjennomsnitt vil det være // TODO: generelt eller spesifikt for et gitt antall n av randPerm?
      */
 
     ///// Oppgave 1 //////////////////////////////////////
@@ -143,7 +144,7 @@ public class Oblig1 {
 
 
     /**
-     * @author Ana-Maria og Maria
+     * @author Ana-Maria
      */
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
@@ -510,17 +511,17 @@ public class Oblig1 {
         System.out.println("Maks verdi er: " + maks(a));
         System.out.println("Array det jobbes på: " + Arrays.toString(a));
         System.out.println("-------------------------------------------------");
-
-        System.out.println("OPPGAVE 2:");
         System.out.println("Antall ombyttinger :" + ombyttinger(b));
         System.out.println("Arrayet det jobbes på:" + Arrays.toString(b));
         System.out.println("Gjennomsnittlig ombyttinger er " + gjennomsnitt(b)); // TODO: kommentere i javadoc utfallet vi får med de forkjsellige str
         System.out.println("-------------------------------------------------");
 
-        System.out.println("OPPGAVE 3:");
+        System.out.println("OPPGAVE 2:");
         System.out.println("Antall ulike sortert er: " + antallUlikeSortert(sortert));
         System.out.println(Arrays.toString(sortert));
         System.out.println("-------------------------------------------------");
+
+        System.out.println("OPPGAVE 3:");
         System.out.println("Antall ulike verdier : " + antallUlikeUsortert(usortert));
         System.out.println("-------------------------------------------------");
 
