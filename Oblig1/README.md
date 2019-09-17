@@ -14,7 +14,7 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 * Maria har jobbet på oppgave 2, 5, 6 og 10
 * Signe har har jobbet på oppgave 5, 6, 7, 8 og 10.
 * Christian har jobbet på oppgave 4, 8, 9 og 10.
-* Camilla har jobbet på oppgave 1, 4, 7 og 8.
+* Camilla har jobbet på oppgave 1, 4 og 8.
 * Ana-Maria har jobbet på oppgave 1, 2, 3, og 8.
 
 * Som du ser har vi parprogrammert på mange av oppgavene, men på tvers av gruppa.

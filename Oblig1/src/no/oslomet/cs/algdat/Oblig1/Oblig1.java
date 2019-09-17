@@ -32,7 +32,7 @@ public class Oblig1 {
         a[c] = temp;
     }
 
-    // randPerm metode som generer tilfeldige tall
+    // TODO: randPerm metode som generer tilfeldige tall
     public static int[] randPerm(int n){
         Random r = new Random();         // en randomgenerator
         int[] a = new int[n];
@@ -50,6 +50,7 @@ public class Oblig1 {
     /** Oppgave 1
      *
      * @author Ana-Maria og Camilla
+     *
      * Gitt en tabell med tallene fra 1 til n vil det vaere :
      * 1) Flest ombyttinger: naar stoerste verdi er paa indeks 0
      * 2) Faerrest ombyttinger: tabellen er sortert stigende
@@ -61,7 +62,6 @@ public class Oblig1 {
      *   de andre maksmetodene én tabelloperasjon ekstra (a[i+1]).
      *   De andre maksmetodene setter tilordningen maksverdi utenfor for-loekken, dermed vil ikke denne operasjonen
      *   skje for hver gang det itereres gjennom loekken. Med andre ord kan man si at den er noe mindre effektiv.
-     *
      */
 
     ///// Oppgave 1 //////////////////////////////////////
@@ -168,7 +168,7 @@ public class Oblig1 {
     /** Oppgave 4
      *
      * @author Christian og Camilla
-     * @param a
+     *
      * Metoden tar inn en liste, sorterer oddetall til hoeyre i listen, og partall til venstre.
      * Deretter sorteres sublistene i stigende rekkefoelge
      */
@@ -273,7 +273,7 @@ public class Oblig1 {
         while(j < T.length){
             ut += T[j++];
         }
-
+        
         return ut;
 
     }
@@ -318,17 +318,12 @@ public class Oblig1 {
                 }
             }
         }
-
         return ut;
     }
 
     /** Oppgave 8
      *
-     * @param a
-     * @return indeks
      * @author Camilla, Ana-Maria, Christian, Signe
-     *
-     *
      */
 
     ///// Oppgave 8 //////////////////////////////////////
@@ -410,8 +405,6 @@ public class Oblig1 {
     /** Oppgave 9
      *
      * @author Christian
-     * @param a
-     * @return
      */
 
     ///// Oppgave 9 //////////////////////////////////////
@@ -500,4 +493,4 @@ public class Oblig1 {
         return true;
     }
 
-}  // Oblig1
+}  // Oblig 1
