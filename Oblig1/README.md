@@ -19,3 +19,6 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 
 * Som du ser har vi parprogrammert på mange av oppgavene, men på tvers av gruppa.
 * Tanken var at alle skulle få prøvd seg på de forskjellige oppgavene så godt det lot seg gjøre.
+
+* OBS! Vi fikk litt hjelp til å sette opp git av en som heter Fredrik, derfor har han noen
+  commits tidlig i repoen.
