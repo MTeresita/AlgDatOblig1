@@ -1,4 +1,4 @@
-package no.oslomet.cs.algdat;
+package src.no.oslomet.cs.algdat;
 
 import java.util.Iterator;
 

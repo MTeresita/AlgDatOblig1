@@ -1,4 +1,6 @@
-package no.oslomet.cs.algdat;
+package src.no.oslomet.cs.algdat;
+
+import src.no.oslomet.cs.algdat.Liste;
 
 import java.util.*;
 
